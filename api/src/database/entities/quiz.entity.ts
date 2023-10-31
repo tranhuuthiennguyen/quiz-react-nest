@@ -15,6 +15,12 @@ export class Quiz {
   @Column()
   createdAt: Date
 
-  @OneToMany(type => Question, (question) => question.quiz)
+  @OneToMany(type => Question, (question) => question.quiz, { onDelete: 'CASCADE' })
   questions: Question[]
+
+  constructor(data?: Partial<Quiz>) {
+    if (data) {
+      Object.assign(data)
+    }
+  }
 }
