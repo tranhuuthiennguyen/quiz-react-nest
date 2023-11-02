@@ -5,7 +5,7 @@ interface Quiz {
   id: number
   title: string
   description: string
-  createdAt: Date
+  createdAt: string
 }
 
 export const QuizList = () => {
@@ -32,7 +32,7 @@ export const QuizList = () => {
 
   return (
     <>
-      <ul>
+      <ul className='align-middle'>
         {quizzes.map(
           quiz =>
             <QuizItem

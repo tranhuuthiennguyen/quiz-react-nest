@@ -1,14 +1,30 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import App from './App.tsx'
 import './index.css'
 import { RouterProvider, createBrowserRouter } from 'react-router-dom'
 import { Root } from './routes/root.tsx'
+import { Home } from './home.tsx'
+import { QuizPage } from './quizzes.tsx'
+import { Quiz } from './quiz.tsx'
 
 const router = createBrowserRouter([
   {
     path: '/',
-    element: <Root />
+    element: <Root />,
+    children: [
+      {
+        path: '/home',
+        element: <Home />
+      },
+      {
+        path: '/quiz',
+        element: <QuizPage />
+      },
+      {
+        path: '/quiz/:id',
+        element: <Quiz />
+      }
+    ]
   }
 ])
 
