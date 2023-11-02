@@ -1,24 +1,23 @@
-import React from 'react'
+import { Link, Outlet } from 'react-router-dom'
 
 export const Root = () => {
   return (
-    <div className="bg-gray-100 min-h-screen">
-      {/* Top Navbar */}
-      <nav className="bg-primary p-4 text-white">
-        <div className="container mx-auto flex justify-between items-center">
-          <h1 className="text-2xl font-semibold">My App</h1>
-          <div>
-            <button className="bg-green-500 text-white px-4 py-2 rounded mr-2">Button 1</button>
-            <button className="bg-blue-500 text-white px-4 py-2 rounded">Button 2</button>
-          </div>
+    <>
+      <div className='min-h-screen flex flex-col'>
+        <nav className='fixed top-0  bg-[#fae8ff] flex justify-center h-14 w-screen shadow-lg'>
+          <ul className='flex flex-wrap justify-between w-32 m-auto'>
+            <li>
+              <Link to={'home'}>Home</Link>
+            </li>
+            <li>
+              <Link to={'quiz'}>Quiz</Link>
+            </li>
+          </ul>
+        </nav>
+        <div className='bg-[#d1d1d1] min-h-screen pt-14'>
+          <Outlet />
         </div>
-      </nav>
-
-      {/* Main Content */}
-      <div className="container mx-auto p-4">
-        {/* Your main content goes here */}
-        <p>This is your main content area.</p>
       </div>
-    </div>
+    </>
   )
 }
