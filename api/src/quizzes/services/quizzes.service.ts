@@ -24,7 +24,12 @@ export class QuizzesService {
   }
 
   async findOne(id: number) {
-    return await this.quizRepository.findOneBy({ id })
+    return await this.quizRepository
+      .createQueryBuilder('quiz')
+      .leftJoinAndSelect('quiz.questions', 'question')
+      .leftJoinAndSelect('question.choices', 'choice')
+      .where('quiz.id = :id', { id })
+      .getOne()
   }
 
   async update(id: number, updateQuizDto: UpdateQuizDto) {

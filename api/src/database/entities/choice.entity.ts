@@ -1,5 +1,6 @@
 import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
 import { Question } from "./question.entity";
+import { Exclude } from "class-transformer";
 
 @Entity()
 export class Choice {
@@ -9,9 +10,10 @@ export class Choice {
   @Column()
   text: string
 
+  @Exclude()
   @Column()
   is_correct: boolean
 
-  @ManyToOne(() => Question, (question) => question.options, { onDelete: 'CASCADE' })
+  @ManyToOne(() => Question, (question) => question.choices, { onDelete: 'CASCADE' })
   question: Question
 }

@@ -17,7 +17,7 @@ export default class MainSeeder implements Seeder {
     const questionFactory = await factoryManager.get(Question)
     const choiceFactory = await factoryManager.get(Choice)
 
-    const quizzes = await quizFactory.saveMany(10)
+    const quizzes = await quizFactory.saveMany(50)
 
     for (const quiz of quizzes) {
       const questions = await Promise.all(
