@@ -5,6 +5,7 @@ import { QuizzesService } from './services/quizzes.service';
 import { QuestionsService } from './services/questions.service';
 import { ExcludeFieldInterceptor } from 'src/interceptors/exclude-field.interceptor';
 import { UserAnswersDto } from './dto/user-answers.dto';
+import { SnakeToCamelInterceptor } from 'src/interceptors/snake-to-camel.interceptor';
 
 @Controller('quizzes')
 export class QuizzesController {
@@ -43,8 +44,9 @@ export class QuizzesController {
     return this.quizzesService.remove(+id);
   }
 
+  @UseInterceptors(SnakeToCamelInterceptor)
   @Post(':id/evaluate')
   async evaluate(@Param('id') id: string, @Body() userAnswers: UserAnswersDto) {
-
+    console.log(userAnswers.questionResponse)
   }
 }
