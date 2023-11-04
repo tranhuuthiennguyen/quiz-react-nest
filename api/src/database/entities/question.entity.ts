@@ -17,5 +17,5 @@ export class Question {
   quiz: Quiz
 
   @OneToMany((type) => Choice, (choice) => choice.question, { onDelete: 'CASCADE' })
-  options: Choice[]
+  choices: Choice[]
 }
