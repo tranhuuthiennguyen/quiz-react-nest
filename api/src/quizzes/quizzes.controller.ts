@@ -47,6 +47,6 @@ export class QuizzesController {
   @UseInterceptors(SnakeToCamelInterceptor)
   @Post(':id/evaluate')
   async evaluate(@Param('id') id: string, @Body() userAnswers: UserAnswersDto) {
-    console.log(userAnswers.questionResponse)
+    return await this.quizzesService.evaluate(+id, userAnswers)
   }
 }
