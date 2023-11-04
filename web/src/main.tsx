@@ -5,7 +5,7 @@ import { RouterProvider, createBrowserRouter } from 'react-router-dom'
 import { Root } from './routes/root.tsx'
 import { Home } from './home.tsx'
 import { QuizPage } from './quizzes.tsx'
-import { Quiz } from './quiz.tsx'
+import { QuizComponent } from './quiz.tsx'
 
 const router = createBrowserRouter([
   {
@@ -22,7 +22,7 @@ const router = createBrowserRouter([
       },
       {
         path: '/quiz/:id',
-        element: <Quiz />
+        element: <QuizComponent />
       }
     ]
   }
