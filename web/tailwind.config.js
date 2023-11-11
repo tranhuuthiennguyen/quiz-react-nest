@@ -13,7 +13,7 @@ export default {
       },
     },
     colors: {
-      'primary': '#1da1f2'
+      'primary': '#4338ca',
     }
   },
   plugins: [],

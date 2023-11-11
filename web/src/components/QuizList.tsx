@@ -1,12 +1,6 @@
 import { useEffect, useState } from "react"
 import { QuizItem } from "./QuizItem"
-
-interface Quiz {
-  id: number
-  title: string
-  description: string
-  createdAt: string
-}
+import { Quiz } from "../interfaces/quiz.interface"
 
 export const QuizList = () => {
   const [quizzes, setQuizzes] = useState<Quiz[]>([])

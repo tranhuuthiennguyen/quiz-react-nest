@@ -1,6 +1,7 @@
 import { Column, Entity, ManyToOne, OneToMany, PrimaryGeneratedColumn } from "typeorm";
 import { Quiz } from "./quiz.entity";
 import { Choice } from "./choice.entity";
+import { Exclude } from "class-transformer";
 
 @Entity()
 export class Question {
@@ -10,6 +11,7 @@ export class Question {
   @Column()
   text: string
 
+  @Exclude()
   @Column()
   explanation: string
 
