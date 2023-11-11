@@ -21,9 +21,10 @@ export const ChoicesGroup = ({ questionId, choices, onChoiceSelected }: ChoicesG
     <>
       <div className='p-2'>
         {choices.map(choice =>
-          <div className='p-2 hover:bg-[#bfdbfe] rounded-full'>
+          <div key={choice.id} className='p-2 hover:bg-[#bfdbfe] rounded-full'>
             <label>
-              <input type='radio' name='choice' value={choice.id} onChange={handleChoiceChange} /> {choice.text}
+              <input type='radio' name={questionId.toString()} value={choice.id} onChange={handleChoiceChange} />
+              {choice.text}
             </label>
           </div>
         )}
